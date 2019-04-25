@@ -1,0 +1,331 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://bio.scai.fraunhofer.de/schema/doctypesystem.schema.json",
+  "title": "DocTypeSystem schema",
+  "definitions": {
+    "textElement": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": ["string", "null"]
+        },
+        "annotations": {
+          "type": "array"
+        }
+      }
+    },
+    "sentence": {
+      "type": "object",
+      "properties": {
+        "sentenceText": {
+          "$ref": "https://bio.scai.fraunhofer.de/schema/doctypesystem.schema.json#textElement"
+        }
+      }
+    },
+    "imageContent": {
+      "type": "object",
+      "properties": {
+        "height": {
+          "type": "integer"
+        },
+        "width": {
+          "type": "integer"
+        },
+        "encoding": {
+          "type": "string"
+        },
+        "compressionLevel": {
+          "type": "number"
+        },
+        "bitDepth": {
+          "type": "number"
+        },
+        "colorModel": {
+          "type": "string"
+        },
+        "content": {
+          "type": "array"
+        }
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "license": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "date": {
+          "type": "number"
+        },
+        "collection": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "documentElement": {
+      "type": "object",
+      "properties": {
+        "metaElement": {
+          "type": "object",
+          "properties": {
+            "bibliographic": {
+              "type": "object",
+              "properties": {
+                "documentAbstract": {
+                  "type": "object",
+                  "properties": {
+                    "abstractSections": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "sectionRhetorical": {
+                            "$ref": "https://bio.scai.fraunhofer.de/schema/doctypesystem.schema.json#textElement"
+                          },
+                          "sectionTitle": {
+                            "$ref": "https://bio.scai.fraunhofer.de/schema/doctypesystem.schema.json#textElement"
+                          },
+                          "paragraphs": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "sentences": {
+                                  "type": "array",
+                                  "items": {
+                                    "$ref": "https://bio.scai.fraunhofer.de/schema/doctypesystem.schema.json#sentence"
+                                  }
+                                },
+                                "structureElements": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "captionedBox": {
+                                        "type": "object",
+                                        "properties": {
+                                          "title": {
+                                            "$ref": "https://bio.scai.fraunhofer.de/schema/doctypesystem.schema.json#textElement"
+                                          },
+                                          "numbering": {
+                                            "type": "integer"
+                                          },
+                                          "caption": {
+                                            "$ref": "https://bio.scai.fraunhofer.de/schema/doctypesystem.schema.json#textElement"
+                                          }
+                                        }
+                                      },
+                                      "code": {
+                                        "type": "object",
+                                        "properties": {
+                                          "code": {
+                                            "$ref": "https://bio.scai.fraunhofer.de/schema/doctypesystem.schema.json#textElement"
+                                          }
+                                        }
+                                      },
+                                      "dataTable": {
+                                        "type": "object",
+                                        "properties": {
+                                          "identifier": {
+                                            "$ref": "https://bio.scai.fraunhofer.de/schema/doctypesystem.schema.json#textElement"
+                                          },
+                                          "version": {
+                                            "$ref": "https://bio.scai.fraunhofer.de/schema/doctypesystem.schema.json#textElement"
+                                          },
+                                          "content": {
+                                            "$ref": "https://bio.scai.fraunhofer.de/schema/doctypesystem.schema.json#textElement"
+                                          }
+                                        }
+                                      },
+                                      "figure": {
+                                        "type": "object",
+                                        "properties": {
+                                          "rhetorical": {
+                                            "$ref": "https://bio.scai.fraunhofer.de/schema/doctypesystem.schema.json#textElement"
+                                          },
+                                          "title": {
+                                            "$ref": "https://bio.scai.fraunhofer.de/schema/doctypesystem.schema.json#textElement"
+                                          },
+                                          "caption": {
+                                            "$ref": "https://bio.scai.fraunhofer.de/schema/doctypesystem.schema.json#textElement"
+                                          },
+                                          "imageContent": {
+                                            "$ref": "https://bio.scai.fraunhofer.de/schema/doctypesystem.schema.json#imageContent"
+                                          }
+                                        }
+                                      },
+                                      "formula": {
+                                        "type": "object",
+                                        "properties": {
+                                          "formula": {
+                                            "$ref": "https://bio.scai.fraunhofer.de/schema/doctypesystem.schema.json#textElement"
+                                          }
+                                        }
+                                      },
+                                      "imageContent": {
+                                        "$ref": "https://bio.scai.fraunhofer.de/schema/doctypesystem.schema.json#imageContent"
+                                      },
+                                      "outline": {
+                                        "type": "object",
+                                        "properties": {
+                                          "titleText": {
+                                            "$ref": "https://bio.scai.fraunhofer.de/schema/doctypesystem.schema.json#textElement"
+                                          },
+                                          "numbering": {
+                                            "type": "string"
+                                          },
+                                          "rhetorical": {
+                                            "$ref": "https://bio.scai.fraunhofer.de/schema/doctypesystem.schema.json#textElement"
+                                          },
+                                          "parts": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "string"
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "quotation": {
+                                        "type": "object",
+                                        "properties": {
+
+                                        }
+                                      },
+                                      "table": {
+                                        "type": "object"
+                                      },
+                                      "textElement": {
+                                        "$ref": "https://bio.scai.fraunhofer.de/schema/doctypesystem.schema.json#textElement"
+                                      },
+                                      "sentence": {
+                                        "$ref": "https://bio.scai.fraunhofer.de/schema/doctypesystem.schema.json#sentence"
+                                      },
+                                      "list": {
+                                        "type": "object",
+                                        "properties": {
+                                          "title": {
+                                            "$ref": "https://bio.scai.fraunhofer.de/schema/doctypesystem.schema.json#textElement"
+                                          },
+                                          "bulltes": {
+                                            "type": "boolean"
+                                          },
+                                          "items": {
+                                            "type": "array",
+                                            "items": {
+                                              "$ref": "https://bio.scai.fraunhofer.de/schema/doctypesystem.schema.json#textElement"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "authors": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "pubDate": {
+                  "type": "object",
+                  "properties": {
+                    "day": {
+                      "type": "integer"
+                    },
+                    "month": {
+                      "type": "integer"
+                    },
+                    "year": {
+                      "type": "integer"
+                    },
+                    "date": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "liscenses": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "title": {
+                  "type": "object"
+                },
+                "language": {
+                  "type": "object"
+                },
+                "source": {
+                  "type": "object"
+                },
+                "issns": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "publicationTypes": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            },
+            "bibliography": {
+              "type": "object"
+            },
+            "keywords": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "concept": {
+              "type": "object"
+            }
+          }
+        },
+        "backMatter": {
+          "type": "object"
+        },
+        "bodyMatter": {
+          "type": "object"
+        },
+        "frontMatter": {
+          "type": "object"
+        }
+      }
+    },
+    "docType": {
+      "type": "string"
+    },
+    "originalMimeType": {
+      "type": "string"
+    }
+  }
+
+}

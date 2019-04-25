@@ -1,0 +1,1 @@
+- [IC50](http://www.chemie.de/lexikon/IC50.html)

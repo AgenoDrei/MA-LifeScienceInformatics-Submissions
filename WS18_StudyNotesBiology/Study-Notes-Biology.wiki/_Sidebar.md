@@ -1,0 +1,15 @@
+- [Home](Home)
+- [Biological Databases](Biological-databases)
+    - [Lecture 30.10.18](30102018_BioDB_Lecture)
+    - ...
+    - [Lecture 04.12.18](04122018_BioDB_Lecture)
+    - [Lecture 11.12.18](11122018_BioDB_Lecture)
+    - [Lecture 12.12.18](12122018_BioDB_Lecture)
+    - [Lecture 08.01.19](08012019_BioDB_Lecture)
+- [Biology Glossar](Biology-Glossar)
+- [Drug development](Drug-development)
+- [General Biology](General-Biology)
+- [Genetics](Genetics)
+- Appendix
+    - [External Resources](ZZ_External-Resources)
+    - [General information](ZZ_General-information)
