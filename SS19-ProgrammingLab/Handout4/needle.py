@@ -1,9 +1,16 @@
 import numpy as np
 import sys
 
+def run(argv):
+    if len(argv) != 5:
+        print('Please start with 4 parameters: Gap Penality, Path to biosum, Path to sequence 1, Path to sequence 2')
+        raise Exception('Please start with 4 parameters: Gap Penality, Path to biosum, Path to sequence 1, Path to sequence 2')
+
+    align_sequences(int(argv[1]), readBiosum(argv[2]), readSequence(argv[3]), readSequence(argv[4]))
+
 
 def align_sequences(penality, biosum, seq1, seq2):
-    print(f'Aligning sequences {seq1} and {seq2}...')
+    print(f'Aligning sequences {seq1[0:10]}... and {seq2[0:10]}... with gap penality {penality}')
     seq1 = '_' + seq1
     seq2 = '_' + seq2
     grid = np.zeros((len(seq1), len(seq2)))
@@ -29,7 +36,7 @@ def align_sequences(penality, biosum, seq1, seq2):
             #pretty_print(seq1, seq2, grid)
 
 
-    pretty_print(seq1, seq2, grid)
+    #pretty_print(seq1, seq2, grid)
     alignment = traceback(grid, seq1, seq2, biosum, penality)
     score = calc_alignment_score(alignment[2])
 
@@ -143,10 +150,5 @@ def readBiosum(path: str) -> dict:
     print(biosum)
     return biosum
 
-
-
-if __name__ == __name__:
-    if len(sys.argv) != 5:
-        print('Please start with 4 parameters: Gap Penality, Path to biosum, Path to sequence 1, Path to sequence 2')
-
-    align_sequences(int(sys.argv[1]), readBiosum(sys.argv[2]), readSequence(sys.argv[3]), readSequence(sys.argv[4]))
+if __name__ == '__main__':
+   run(sys.argv)
